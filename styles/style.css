@@ -138,6 +138,7 @@
   width: 1052px;
   height: 723px;
   margin-top: 180px;
+  padding: 0 24px;
 }
 
 .lots__heading {
@@ -160,7 +161,6 @@
 .lots__card-list-item {
   width: 334px;
   min-height: 596px;
-  flex-grow: 1;
 }
 
 .card-link {
