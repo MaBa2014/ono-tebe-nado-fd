@@ -116,10 +116,6 @@
   letter-spacing: 30px;
 }
 
-.no-letter-spacing {
-  letter-spacing: 0;
-}
-
 .cover__description {
   display: flex;
   justify-content: flex-end;
