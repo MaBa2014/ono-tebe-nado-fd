@@ -94,7 +94,7 @@
   width: 100%;
 }
 
-.no-letter-spacing{
+.no-letter-spacing {
   letter-spacing: 0; /* Помогает исключить отрицательный margin */
 }
 
@@ -105,12 +105,11 @@
 
 .aligned-text_center {
   justify-content: center;
-  padding-left: 30px; 
+  padding-left: 30px;
 }
 
 .aligned-text_right {
   justify-content: flex-end;
-  
 }
 
 .letter-spacing-extended {
