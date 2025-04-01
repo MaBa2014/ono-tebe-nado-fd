@@ -1,13 +1,16 @@
+/* Общие стили для активных ссылок в меню */
+.menu-link_active {
+  text-decoration: none;
+}
+
 /* Стили для шапки */
 .header {
   display: grid;
   grid-template-columns: 1fr min-content 1fr;
   align-items: center;
-  padding: 20px 50px;
+  padding: 89px 50px 95px;
   font-size: 18px;
   font-weight: 400;
-  width: 1100px;
-  height: 293px;
 }
 
 /* Стили для меню */
@@ -34,21 +37,29 @@
   font-size: 18px;
 }
 
-.header__link_active {
-  text-decoration: underline;
-}
-
+/* Стили для логотипа */
 .header__logo-image {
   width: 148px;
   height: 105px;
 }
 
-/* Стили для адреса */
-.header__address {
-  justify-self: end;
-  max-width: 240px;
+/* Универсальные стили для адреса */
+.address {
   font-style: normal;
   line-height: 1.35;
+  font-size: 18px;
+  text-underline-offset: 4px;
+}
+
+.address__link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Специфичное позиционирование адреса в хедере */
+.header .address {
+  justify-self: end;
+  max-width: 240px;
 }
 
 /* Стили для обложки */
@@ -61,7 +72,7 @@
   color: #fff;
   z-index: 0;
   width: 1100px;
-  height: 757px;
+  min-height: 757px;
 }
 
 .overlay {
@@ -71,29 +82,35 @@
   z-index: -1;
 }
 
-/* Заголовок */
 .cover__title {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  gap: 20px;
   font-size: 100px;
   font-weight: 700;
   line-height: 1.15;
   text-transform: uppercase;
   margin-bottom: 106px;
+  width: 100%;
+}
+
+.no-letter-spacing{
+  letter-spacing: 0; /* Помогает исключить отрицательный margin */
 }
 
 .aligned-text {
-  display: block;
-  margin-bottom: 20px;
-  letter-spacing: 30px; /* Отступы во всем блоке*/
+  display: flex;
+  letter-spacing: 30px;
 }
 
 .aligned-text_center {
-  text-align: center;
-  margin-left: 30px;
+  justify-content: center;
+  padding-left: 30px; 
 }
 
 .aligned-text_right {
-  text-align: right;
-  margin-right: -30px;
+  justify-content: flex-end;
+  
 }
 
 .letter-spacing-extended {
@@ -135,8 +152,6 @@
 }
 
 .lots {
-  width: 1052px;
-  height: 723px;
   margin-top: 180px;
   padding: 0 24px;
 }
@@ -153,6 +168,7 @@
 .lots__card-list {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   gap: 25px;
   margin: 0 0 30px;
   padding: 0;
@@ -165,40 +181,34 @@
 
 .card-link {
   text-decoration: none;
-  height: 100%;
   display: block;
 }
 
-/* Карточка */
+/* Общие стили карточки */
 .card {
   position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 48px 40px 48px;
+  padding: 48px 40px;
   color: #fff;
   background-size: cover;
   background-position: center;
   z-index: 0;
+  min-height: 596px;
 }
 
 .card_type_film {
-  background-image: url(/images/card-lot-01.jpg);
-  width: 334px;
-  height: 596px;
+  background-image: url(../images/card-lot-01.jpg);
 }
 
 .card_type_book {
-  background-image: url(/images/card-lot-02.jpg);
-  width: 334px;
-  height: 596px;
+  background-image: url(../images/card-lot-02.jpg);
 }
 
 .card_type_picture {
-  background-image: url(/images/card-lot-03.jpg);
-  width: 334px;
-  height: 596px;
+  background-image: url(../images/card-lot-03.jpg);
 }
 
 .card__title {
@@ -206,7 +216,7 @@
   text-decoration: underline;
   text-transform: uppercase;
   z-index: 1;
-  text-decoration-skip-ink: none; /* Решает проблему с пропаданием подчеркивания */
+  text-decoration-skip-ink: none;
 }
 
 .card__text {
@@ -225,12 +235,10 @@
 
 .about {
   display: grid;
-  grid-template-columns: 334px 1fr; /* Левая колонка как карточка, правая - остальное */
+  grid-template-columns: 334px 1fr;
   gap: 25px;
   padding: 0 24px;
   margin-top: 120px;
-  width: 1052px;
-  height: 595px;
 }
 
 .about__column {
@@ -246,8 +254,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  margin-top: 35px;
+  margin: 35px auto 0;
 }
 
 .about__logo-image {
@@ -264,60 +271,31 @@
 
 .about__text {
   margin-top: 100px;
-  width: 693px;
-  height: 312px;
 }
 
-/* Общие правила p для блока about */
 .about__text p {
   line-height: 24px;
   font-size: 20px;
-}
-
-/* Первый p в about */
-.about__text p:first-child {
   margin-bottom: 24px;
-  width: 688px;
-  height: 120px;
 }
 
-/* Последний p в about */
 .about__text p:last-child {
-  width: 693px;
-  height: 168px;
+  margin-bottom: 0;
 }
 
 /* Стили для подвала */
 .footer {
   display: grid;
-  grid-template-columns: 1fr min-content 1fr;
+  grid-template-columns: repeat(3, 1fr);
   align-items: start;
   width: 1100px;
-  height: 180px;
   margin-top: 180px;
-  padding: 0 50px 0;
-}
-
-/* Адрес (левая колонка) */
-.footer__address {
-  font-style: normal;
-  line-height: 1.35;
-  justify-self: start;
-  width: 265px;
-  height: 98px;
-  font-size: 18px;
-}
-
-.address__link {
-  color: inherit;
-  text-decoration: none;
+  padding: 0 50px;
 }
 
 /* Центральное меню */
 .footer__menu {
-  justify-self: end;
-  width: 164px;
-  height: 64px;
+  justify-self: center;
   font-size: 18px;
 }
 
@@ -330,16 +308,11 @@
 
 .footer__menu-link {
   color: inherit;
-  text-decoration: underline;
   font-size: 18px;
   text-underline-offset: 3px;
 }
 
-.footer__menu-link_active {
-  text-decoration: none;
-}
-
-/* Соцсети (правая колонка) */
+/* Соцсети */
 .footer__social-list {
   list-style: none;
   margin: 0;
